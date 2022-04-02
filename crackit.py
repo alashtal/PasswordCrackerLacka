@@ -31,18 +31,17 @@ Yb        dP       8                                w            888b.          
                    _/    \_
       """)
 
-passwordHash = input("Please enter md5 hash: ")
+passwordHash = input("PLEASE enter md5 hash: ")
 
-wordList = input("Enter file name|path: ")
+wordList = input("ENTER file name|path: ")
       
-      try:
-      passwordFile = open(wordList, "r")
-      
-      execpt:
+try:
+     passwordFile = open(wordList, "r")
+except:
       print("no file found")
       quit()
       
-     for words in passwordFile:
+for words in passwordFile:
       encryptedWord = word.encode('utf-8')
       hexConvert = hashlib.md5(encryptedWord.strip()).hexdigest()
       counter += 1
@@ -50,19 +49,18 @@ wordList = input("Enter file name|path: ")
       #print(words)
       #print(hexConvert)
       #print(passwordHash)
-      if hexConvert == passwordHash:
-      print(r"""\ 
+if hexConvert == passwordHash:print(r"""\ 
   ___                              _    ___             _          _   _ 
  | _ \__ _ _______ __ _____ _ _ __| |  / __|_ _ __ _ __| |_____ __| | | |
  |  _/ _` (_-(_-\ V  V / _ | '_/ _` | | (__| '_/ _` / _| / / -_/ _` | |_|
  |_| \__,_/__/__/\_/\_/\___|_| \__,_|  \___|_| \__,_\__|_\_\___\__,_| (_)
                                                                          
-      """)
-      print("Password is " + word)
-      print("I tried" + counter + "times !")
-      flag = 1
-      break
-      
-if flag == 0
+""")
+print("Password is " + word)
+print("I tried" + counter + "times !")
+flag = 1
+break
+
+if flag == 0:
 print("Password NOT found in the list you provided above")
 print("I tried" + counter + "times !")
